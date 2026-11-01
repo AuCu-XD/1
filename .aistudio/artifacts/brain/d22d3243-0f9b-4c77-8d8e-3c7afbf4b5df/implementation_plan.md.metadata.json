@@ -1,0 +1,6 @@
+{
+  "summary":  "Kế hoạch xây dựng hệ thống 4 phương thức nhập câu hỏi toàn diện trong Ngân hàng câu hỏi: Tab 1 (Import Excel/Word kèm file mẫu chuẩn), Tab 2 (Gemini AI phân tích giáo án/PDF/PPT tự động sinh câu hỏi kèm kiểm tra nội dung), Tab 3 (OCR trích xuất ảnh chia đôi màn hình đối chiếu kèm cảnh báo ảnh mờ), và Tab 4 (Tạo thủ công 5 dạng câu hỏi: Pick One, Pick Many, Đúng/Sai, Điền khuyết, Tự luận có AI thẩm định đáp án).",
+  "updatedAt":  "2026-10-24T03:30:37.051036094Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

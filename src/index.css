@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #f8fafc;
+    --text-main: #0f172a;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --input-bg: #ffffff;
+    --input-text: #0f172a;
+    --input-placeholder: #64748b;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --bg-main: #181d28; /* Màu đen nhạt/xám than êm dịu, không gắt */
+    --text-main: #f1f5f9;
+    --card-bg: #222938; /* Ô nền đen nhạt hài hòa */
+    --card-border: #334155;
+    --input-bg: #1e293b;
+    --input-text: #f8fafc;
+    --input-placeholder: #94a3b8;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Đảm bảo ô nhập văn bản không bao giờ bị trùng màu giữa chữ, placeholder và nền */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="submit"]):not([type="button"]):not([type="color"]),
+  textarea,
+  select {
+    color: var(--input-text);
+  }
+
+  /* Khắc phục triệt để lỗi chữ trong ô văn bản bị trùng màu với nền hoặc bị mờ trên WebKit/Blink khi disabled hoặc readOnly */
+  input:disabled,
+  input[disabled],
+  input:read-only,
+  input[readonly],
+  textarea:disabled,
+  textarea[disabled],
+  textarea:read-only,
+  textarea[readonly] {
+    -webkit-text-fill-color: currentColor !important;
+    opacity: 1 !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--input-placeholder) !important;
+    -webkit-text-fill-color: var(--input-placeholder) !important;
+    opacity: 1 !important;
+  }
+
+  /* Đảm bảo option luôn có màu tương phản, không bị chữ trắng nền trắng hoặc chữ đen nền đen */
+  option {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+  }
+}
+
+/* =========================================================================
+   BẢNG MÀU NEON CÁ NHÂN HÓA - SÁNG NHẸ HÀI HÒA, RỘNG RÃI VỀ MÀU SẮC
+   Hiển thị viền và chữ phát sáng nhẹ dịu, không bị chói mắt.
+   Màu Neon giữ nguyên sắc diện cá tính khi chuyển chế độ Sáng / Tối.
+   ========================================================================= */
+
+/* 1. Cyan (Lam Ngọc) */
+html[data-neon="cyan"] {
+  --neon-accent: #06b6d4;
+  --neon-glow: rgba(6, 182, 212, 0.35);
+  --neon-glow-soft: rgba(6, 182, 212, 0.15);
+  --neon-tint-bg: rgba(6, 182, 212, 0.06);
+}
+
+/* 2. Emerald (Ngọc Bích) */
+html[data-neon="emerald"] {
+  --neon-accent: #10b981;
+  --neon-glow: rgba(16, 185, 129, 0.35);
+  --neon-glow-soft: rgba(16, 185, 129, 0.15);
+  --neon-tint-bg: rgba(16, 185, 129, 0.06);
+}
+
+/* 3. Violet (Tím Huyền Bí) */
+html[data-neon="violet"] {
+  --neon-accent: #a855f7;
+  --neon-glow: rgba(168, 85, 247, 0.35);
+  --neon-glow-soft: rgba(168, 85, 247, 0.15);
+  --neon-tint-bg: rgba(168, 85, 247, 0.06);
+}
+
+/* 4. Amber (Vàng Hổ Phách) */
+html[data-neon="amber"] {
+  --neon-accent: #f59e0b;
+  --neon-glow: rgba(245, 158, 11, 0.35);
+  --neon-glow-soft: rgba(245, 158, 11, 0.15);
+  --neon-tint-bg: rgba(245, 158, 11, 0.06);
+}
+
+/* 5. Rose (Hồng Ánh Kim) */
+html[data-neon="rose"] {
+  --neon-accent: #f43f5e;
+  --neon-glow: rgba(244, 63, 94, 0.35);
+  --neon-glow-soft: rgba(244, 63, 94, 0.15);
+  --neon-tint-bg: rgba(244, 63, 94, 0.06);
+}
+
+/* 6. Sky (Xanh Da Trời) */
+html[data-neon="sky"] {
+  --neon-accent: #0284c7;
+  --neon-glow: rgba(2, 132, 199, 0.35);
+  --neon-glow-soft: rgba(2, 132, 199, 0.15);
+  --neon-tint-bg: rgba(2, 132, 199, 0.06);
+}
+
+/* 7. Fuchsia (Tím Sen Neon) */
+html[data-neon="fuchsia"] {
+  --neon-accent: #d946ef;
+  --neon-glow: rgba(217, 70, 239, 0.35);
+  --neon-glow-soft: rgba(217, 70, 239, 0.15);
+  --neon-tint-bg: rgba(217, 70, 239, 0.06);
+}
+
+/* 8. Lime (Xanh Chanh Tươi) */
+html[data-neon="lime"] {
+  --neon-accent: #84cc16;
+  --neon-glow: rgba(132, 204, 22, 0.35);
+  --neon-glow-soft: rgba(132, 204, 22, 0.15);
+  --neon-tint-bg: rgba(132, 204, 22, 0.06);
+}
+
+/* ỨNG DỤNG MÀU NEON:
+   - Sáng nhẹ thanh lịch để tạo sự hài hòa
+   - Khi chọn "Không có" (data-neon="none" hoặc không có attribute), các quy tắc này không kích hoạt.
+*/
+html[data-neon]:not([data-neon="none"]) .neon-border {
+  border-color: var(--neon-accent) !important;
+  box-shadow: 0 0 8px var(--neon-glow-soft), 0 0 2px var(--neon-glow);
+}
+
+html.dark[data-neon]:not([data-neon="none"]) .neon-border {
+  border-color: var(--neon-accent) !important;
+  box-shadow: 0 0 10px var(--neon-glow-soft), inset 0 0 3px var(--neon-glow-soft);
+}
+
+html[data-neon]:not([data-neon="none"]) .neon-text {
+  color: var(--neon-accent) !important;
+  text-shadow: 0 0 4px var(--neon-glow);
+}
+
+html[data-neon]:not([data-neon="none"]) .neon-card-box {
+  border-color: var(--neon-accent) !important;
+  box-shadow: 0 0 6px var(--neon-glow-soft);
+}
